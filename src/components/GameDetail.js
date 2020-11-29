@@ -136,7 +136,8 @@ const CardShadow = styled(motion.div)`
 `;
 
 const Detail = styled(motion.div)`
-  width: 80%;
+  width: 90%;
+  max-width: 1024px;
   border-radius: 1rem;
   padding: 2rem 5rem;
   background: #fff;
@@ -166,9 +167,7 @@ const Info = styled(motion.div)`
 const Platforms = styled(motion.div)`
   display: flex;
   justify-content: space-evenly;
-  img {
-    margin-left: 3rem;
-  }
+  width: 12rem;
 `;
 
 const Media = styled(motion.div)`

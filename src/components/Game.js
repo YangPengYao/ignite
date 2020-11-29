@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 // react-router-dom
 import { Link } from 'react-router-dom';
 // styleing and animation
@@ -11,9 +11,12 @@ import { loadDetail } from '../actions/detailAction';
 // util
 import { smallImage } from '../util';
 
-function Game({ name, released, image, id }) {
+function Game({ name, released, image, id, pathId }) {
+  const [initGaneDetail, setIitGameDetail] = useState(true);
+
   // for layoutId
   const stringifyId = id.toString();
+
   // load detail
   const dispatch = useDispatch();
   const loadDetailHandler = async () => {
@@ -21,6 +24,19 @@ function Game({ name, released, image, id }) {
     // when showing the game detail, background (home) can't be scrolled
     document.body.style.overflow = 'hidden';
   };
+
+  const init = useCallback(async () => {
+    await dispatch(loadDetail(id));
+    // when showing the game detail, background (home) can't be scrolled
+    document.body.style.overflow = 'hidden';
+  }, [dispatch, id]);
+
+  useEffect(() => {
+    if (pathId && stringifyId === pathId && initGaneDetail) {
+      init();
+      setIitGameDetail(false);
+    }
+  }, [stringifyId, pathId, initGaneDetail, init]);
 
   return (
     <StyledGame

@@ -40,6 +40,7 @@ function Home() {
             released={game.released}
             id={game.id}
             image={game.background_image}
+            pathId={pathId}
           />
         ))}
       </Games>
@@ -62,6 +63,7 @@ function Home() {
               released={game.released}
               id={game.id}
               image={game.background_image}
+              pathId={pathId}
             />
           ))}
         </Games>
@@ -74,6 +76,7 @@ function Home() {
               released={game.released}
               id={game.id}
               image={game.background_image}
+              pathId={pathId}
             />
           ))}
         </Games>
@@ -86,6 +89,7 @@ function Home() {
               released={game.released}
               id={game.id}
               image={game.background_image}
+              pathId={pathId}
             />
           ))}
         </Games>
